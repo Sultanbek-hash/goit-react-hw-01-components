@@ -1,5 +1,5 @@
 import data from '../path/data.json';
-import { Statistics } from './datalist/datalist';
+import { Statistics } from './Statistics/Statistics';
 import user from '../path/user.json';
 import { Profile } from './profile/profile';
 import friends from '../path/friends.json';
@@ -17,28 +17,9 @@ export const App = () => {
         avatar={user.avatar}
         stats={user.stats}
        /> 
+       <Statistics stats={data} />
+       <FriendList friends={friends}/>
+       <TransactionHistory  items={transactions}/>
       </>
   );
 };
-export const App2 = () =>{
-  return (
-    <>
-       <Statistics title="Upload stats" stats={data} />
-    </>
-  )
-}
-
-export const App3 = () =>{
-  return (
-    <>
-    <FriendList friends={friends}/>
-    </>
-  )
-}
-export const App4 = () =>{
-  return (
-    <>
-    <TransactionHistory  items={transactions}/>
-    </>
-  )
-}
