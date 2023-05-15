@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { H2Text, LibgkColor, SectionStat, UlBgkColor, SpanPercentage, SpanLabel } from "./Statistics.styled";
 
 
-export const Statistics = ({stats}) => {
+export const Statistics = ({title= 'Upload stats', stats}) => {
     return(
         <SectionStat>
-    <H2Text>
-      Upload stats
-    </H2Text>
+      {title && <H2Text>{title}</H2Text>}
     <UlBgkColor>
         {stats.map(item => (
             <LibgkColor key={item.id}>

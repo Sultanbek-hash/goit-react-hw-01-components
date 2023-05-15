@@ -3,19 +3,25 @@ import { UlList, LiItem, Images, Isonline, Pname  } from "./friendlist.styled";
 
 export const FriendList = ({friends}) =>{
     return (
-        <UlList key={friends.id}>
-        {friends.map(item => (
-            <FriendListItem item={item} />
-        ))}
+        <UlList>
+            {friends.map(({id, name, avatar, isOnline}) => (
+
+                <FriendListItem 
+                key={id}
+                avatar={avatar}
+                name={name}
+                isOnline={isOnline}
+                />
+            ))}
         </UlList>
     );
 };
 
-const FriendListItem = ({item: {avatar, name, isOnline}}) =>{
+const FriendListItem = ({avatar, name, isOnline}) =>{
     return (
         <LiItem >
         <Isonline isOnline={isOnline}></Isonline>
-        <Images src={avatar} alt="User avatar" width="48" />
+        <Images src={avatar} alt={name} width="48" />
         <Pname>{name}</Pname>
         </LiItem >
     )
